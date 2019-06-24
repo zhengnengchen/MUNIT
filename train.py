@@ -57,7 +57,6 @@ if __name__ == "__main__":
     # Start training
     iterations = trainer.resume(checkpoint_directory, hyperparameters=config) if opts.resume else 0
     while True:
-        __spec__ = "ModuleSpec(name='builtins', loader=<class '_frozen_importlib.BuiltinImporter'>)"
         for it, (images_a, images_b) in enumerate(zip(train_loader_a, train_loader_b)):
             trainer.update_learning_rate()
             images_a, images_b = images_a.cuda().detach(), images_b.cuda().detach()
