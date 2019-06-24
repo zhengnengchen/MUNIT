@@ -32,7 +32,7 @@ parser.add_argument('--seed', type=int, default=1, help="random seed")
 parser.add_argument('--num_style',type=int, default=10, help="number of styles to sample")
 parser.add_argument('--synchronized', action='store_true', help="whether use synchronized style code or not")
 parser.add_argument('--output_only', action='store_true', help="whether use synchronized style code or not")
-parser.add_argument('--output_path', type=str, default='.', help="path for logs, checkpoints, and VGG model weight")
+parser.add_argument('--output_path', type=str, default='.', help="path for logs and checkpoints model weight")
 parser.add_argument('--trainer', type=str, default='MUNIT', help="MUNIT|UNIT")
 parser.add_argument('--compute_IS', action='store_true', help="whether to compute Inception Score or not")
 parser.add_argument('--compute_CIS', action='store_true', help="whether to compute Conditional Inception Score or not")
@@ -62,7 +62,6 @@ if opts.compute_IS or opts.compute_IS:
 image_names = ImageFolder(opts.input_folder, transform=None, return_paths=True)
 data_loader = get_data_loader_folder(opts.input_folder, 1, False, new_size=config['new_size_a'], crop=False)
 
-config['vgg_model_path'] = opts.output_path
 if opts.trainer == 'MUNIT':
     style_dim = config['gen']['style_dim']
     trainer = MUNIT_Trainer(config)

@@ -25,7 +25,7 @@ parser.add_argument('--seed', type=int, default=10, help="random seed")
 parser.add_argument('--num_style',type=int, default=10, help="number of styles to sample")
 parser.add_argument('--synchronized', action='store_true', help="whether use synchronized style code or not")
 parser.add_argument('--output_only', action='store_true', help="whether use synchronized style code or not")
-parser.add_argument('--output_path', type=str, default='.', help="path for logs, checkpoints, and VGG model weight")
+parser.add_argument('--output_path', type=str, default='.', help="path for logs and checkpoints model weight")
 parser.add_argument('--trainer', type=str, default='MUNIT', help="MUNIT|UNIT")
 opts = parser.parse_args()
 
@@ -41,7 +41,6 @@ config = get_config(opts.config)
 opts.num_style = 1 if opts.style != '' else opts.num_style
 
 # Setup model and data loader
-config['vgg_model_path'] = opts.output_path
 if opts.trainer == 'MUNIT':
     style_dim = config['gen']['style_dim']
     trainer = MUNIT_Trainer(config)
