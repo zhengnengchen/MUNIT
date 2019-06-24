@@ -19,7 +19,7 @@ import shutil
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str, default='configs/edges2handbags_folder.yaml', help='Path to the config file.')
+    parser.add_argument('--config', type=str, default='configs/demo_edges2handbags_folder.yaml', help='Path to the config file.')
     parser.add_argument('--output_path', type=str, default='.', help="outputs path")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument('--trainer', type=str, default='MUNIT', help="MUNIT|UNIT")

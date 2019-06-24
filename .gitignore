@@ -16,3 +16,4 @@ src/yaml_generator.py
 *.pyc
 
 datasets/
+.vscode
